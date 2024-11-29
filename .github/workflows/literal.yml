@@ -10,5 +10,4 @@ jobs:
           LITERAL_BOOLEAN: ${{ true }}
           LITERAL_NUMBER: ${{ 42 }}
           LITERAL_STRING: ${{ 'Hello, world!' }}
-          LITERAL_ARRAY: ${{ ['a', 'b', 'c'] }}
           LITERAL_OMIT_STRING: OmitString
