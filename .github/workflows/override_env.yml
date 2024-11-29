@@ -1,0 +1,15 @@
+name: Override environment variables
+on: push
+env:
+  # define workflow level, this value will be overridden in the job
+  OVERRIDE_VALUE: "Overridden value"
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      # it must be printed as "Overridden value"
+      - run: echo "${OVERRIDE_VALUE}"
+      - env:
+          OVERRIDE_VALUE: "New value"
+        # it must be printed as "New value"
+        run: echo "${OVERRIDE_VALUE}"
