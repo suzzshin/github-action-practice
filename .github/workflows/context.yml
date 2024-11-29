@@ -1,0 +1,9 @@
+name: Context
+on: push
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.actor }}"
+      - run: echo "${{ github.event_name }}"
+      - run: echo "${{ github.repository }}"
