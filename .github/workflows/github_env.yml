@@ -1,0 +1,8 @@
+name: GITHUB_ENV
+on: push
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "export RESULT=Hello" >> "${GITHUB_ENV}"
+      - run: echo "The result was ${RESULT}"
