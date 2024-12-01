@@ -1,0 +1,9 @@
+name: Missing share data
+on: push
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      - run: export MISSING_DATA="This is missing data"
+      # it does not work
+      - run: echo "Missing data: ${MISSING_DATA}"
