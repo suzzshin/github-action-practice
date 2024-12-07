@@ -1,0 +1,12 @@
+name: shell
+on: push
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          echo "Hello, world!"
+      - shell: python
+        run: |
+          print("Hello from Python!")
