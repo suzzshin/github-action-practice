@@ -1,0 +1,10 @@
+name: Add mask
+on: push
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    env:
+      SECRET: "super_secret"
+    steps:
+      - run: echo "::add-mask::${SECRET}"
+      - run: echo $SECRET
