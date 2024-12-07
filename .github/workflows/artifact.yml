@@ -17,5 +17,6 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: uploaded-date
+          # optional, defaults to the workspace directory
           path: downloaded
       - run: cat downloaded/date.txt
