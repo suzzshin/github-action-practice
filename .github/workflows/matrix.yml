@@ -1,0 +1,12 @@
+name: Matrix
+on: push
+jobs:
+  print:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: echo "Hello, world!"
+      - run: echo "Hello from ${{ runner.os }}"
+      - run: echo "Hello from ${{ matrix.os }}"
