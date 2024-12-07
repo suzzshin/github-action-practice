@@ -4,4 +4,5 @@ jobs:
   log:
     runs-on: ubuntu-latest
     steps:
+      # Click "Re-run all jobs" and check "Enable debug loggin" on GUI console
       - run: echo "::debug::Hello, world!"
