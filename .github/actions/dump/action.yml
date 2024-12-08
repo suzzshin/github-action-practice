@@ -1,0 +1,26 @@
+name: Dump
+description: |
+  Print environment variables, context.
+  Useful for debugging.
+inputs:
+  enable-context:
+    default: true
+    required: false
+    description: "Print context"
+outputs:
+  dumped-date:
+    value: ${{ steps.current.outputs.date }}
+    description: "The date when the action was executed"
+runs:
+  using: composite
+  steps:
+    - run: printenv | sort
+      shell: bash
+    - run: echo "${CONTEXT}"
+      if: ${{ inputs.enable-context == true }}
+      env:
+        CONTEXT: ${{ toJson(github) }}
+      shell: bash
+    - id: current
+      run: echo "date=$(date)" >> ${GITHUB_OUTPUT}
+      shell: bash
