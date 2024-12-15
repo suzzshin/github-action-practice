@@ -7,6 +7,6 @@ jobs:
       - run: exit "$(( RANDOM % 2 ))"
       # execute if previous step success and this step must be failure
       - run: exit 1
-        if: error
+        id: error
       - run: echo "Catch error step"
         if: ${{ failure() && steps.error.outcome == 'failure' }}
