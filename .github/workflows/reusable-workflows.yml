@@ -13,6 +13,7 @@ on:
         description: "The token to use for the workflow run"
     outputs:
       message:
+        # 3) workflow output (from job output)
         value: ${{ jobs.comment.outputs.pr-comment }}
         description: "The comment message to use for the workflow run"
 jobs:
@@ -24,6 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: pr-comment
+        # 1) original output (step level)
         run: |
           body="Welcome, ${GITHUB_ACTOR}!"
           gh pr comment "${PR_NUMBER}" -b "$body"
@@ -31,5 +33,6 @@ jobs:
         env:
           PR_NUMBER: ${{ github.event.inputs.pr-number }}
           GITHUB_TOKEN: ${{ secrets.token }}
+    # 2) job output (from step output)
     outputs:
       pr-comment: ${{ steps.pr-comment.outputs.body }}
