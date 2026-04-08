@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v6
       # get dependency metadata
       - id: meta
-        uses: dependabot/fetch-metadata@v2
+        uses: dependabot/fetch-metadata@v3
       # merge PR if it's a patch update
       - if: ${{ steps.meta.outputs.update-type == 'version-update:semver-patch' }}
         run: |
